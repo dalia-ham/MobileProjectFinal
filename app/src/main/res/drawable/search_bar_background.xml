@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#F0EBF6" /> <!-- لون شفاف بنفسجي -->
+    <corners android:radius="50dp" />
+</shape>

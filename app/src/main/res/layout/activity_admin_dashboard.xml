@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_dashboard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/purple"
+    tools:context=".adminDashboard">
+
+    <!-- Header Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_section"
+        android:layout_width="376dp"
+        android:layout_height="71dp"
+        android:backgroundTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Circular Logo -->
+        <com.example.mobileprojectfinal.CircularImageView
+            android:id="@+id/admin_logo"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/user_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Admin Title -->
+        <TextView
+            android:id="@+id/admin_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/admin_dashboard"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/admin_logo"
+            app:layout_constraintEnd_toStartOf="@id/setting"
+            app:layout_constraintStart_toEndOf="@id/admin_logo"
+            app:layout_constraintTop_toTopOf="@id/admin_logo" />
+
+        <!-- Setting Icon -->
+        <ImageView
+            android:id="@+id/setting"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/description_settings"
+            android:src="@drawable/setting_icon"
+            app:layout_constraintBottom_toBottomOf="@id/admin_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/admin_logo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Statistics Section -->
+    <LinearLayout
+        android:id="@+id/statistics_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/header_section"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/textfield_border">
+
+        <!-- Employees Count -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/employee"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/employee_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/employees"
+                android:textColor="@color/purple"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/employees_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:textSize="24sp"
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Projects Count -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/projects"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/project_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/projects"
+                android:textSize="16sp"
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/projects_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:textColor="@color/purple"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Reports Generated -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/reports"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/report_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reports"
+                android:textSize="16sp"
+                android:textColor="@color/purple"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/reports_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0"
+                android:textColor="@color/purple"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Quick Actions Section -->
+    <LinearLayout
+        android:id="@+id/quick_actions_section"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/statistics_section"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/textfield_border"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Add Manager Button -->
+        <Button
+            android:id="@+id/add_manager_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/purple"
+            android:text="@string/add_manager" />
+
+        <!-- Add Employee Button -->
+        <Button
+            android:id="@+id/add_employee_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/purple"
+            android:text="@string/add_employee" />
+
+        <!-- Add Project Button -->
+        <Button
+            android:id="@+id/add_project_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/purple"
+            android:text="@string/add_project" />
+
+        <!-- View Reports Button -->
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

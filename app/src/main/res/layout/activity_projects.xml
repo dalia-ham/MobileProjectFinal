@@ -1,0 +1,47 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/purple"
+    android:padding="16dp">
+
+    <!-- خانة البحث -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="8dp"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/search_icon"
+            android:contentDescription="Search Icon" />
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="Search by project name"
+            android:background="@android:color/transparent"
+            android:textColor="@color/black"
+            android:textColorHint="@color/purple"
+            android:inputType="text"
+            android:imeOptions="actionSearch" />
+    </LinearLayout>
+
+    <!-- قائمة المشاريع -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/projects_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+</LinearLayout>

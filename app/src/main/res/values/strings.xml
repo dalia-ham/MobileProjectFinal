@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart code </string>
+    <string name="email_address">Enter Your Email Address</string>
+    <string name="password">Enter Your Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="welcome_text">Welcome </string>
+    <string name="welcome_emp">Welcome.. </string>
+    <string name="TaskNumber">You have ...... this month</string>
+    <string name="search_a_task">Search a task</string>
+    <string name="to_do">To Do</string>
+    <string name="progress">Progress</string>
+    <string name="description_settings">description_settings</string>
+    <string name="done">Done</string>
+    <string name="today_s_tasks"> Tasks</string>
+    <string name="full_name_label">Full Name:</string>
+    <string name="email">Email:</string>
+    <string name="position">Position:</string>
+    <string name="projects_number">Projects I worked on:</string>
+    <string name="passwordProfile">Password:</string>
+    <string name="mobile">Mobile:</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="add_manager">Add Manager</string>
+    <string name="first_name">First Name</string>
+    <string name="back_button">back_button</string>
+
+    <string name="last_name">Last Name</string>
+    <string name="Email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="descriptionprofile_image">Profile Image</string>
+    <string name="descriptionback_button">Back Button</string>
+    <string name="no_image_selected">No image selected</string>
+    <string name="Password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="submit">Submit</string>
+    <string name="employees">Employees</string>
+    <string name="descriptionadmin_logo">Admin Logo</string>
+    <string name="admin_dashboard">Admin Dashboard</string>
+    <string name="_0">0</string>
+    <string name="admin_logo">Admin Logo</string>
+    <string name="projects">Projects</string>
+    <string name="reports">Reports</string>
+    <string name="add_employee">Add Employee</string>
+    <string name="add_project">Add Project</string>
+    <string name="view_reports">View Reports</string>
+    <string name="change_language">Change Language</string>
+    <string name="settings">Settings</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="manage_profile">Manage Profile</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="salary">Salary</string>
+    <string name="description_profile_image">Profile Image</string>
+    <string name="save">Save</string>
+
+    <!-- New Strings -->
+    <string name="completed_tasks">Completed Tasks</string>
+    <string name="progress_rate">Progress Rate</string>
+    <string name="remaining_time">Remaining Time</string>
+</resources>
