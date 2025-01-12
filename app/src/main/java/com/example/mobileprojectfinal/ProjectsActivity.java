@@ -35,21 +35,17 @@ public class ProjectsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
 
-        // ربط RecyclerView وخانة البحث
         projectsRecyclerView = findViewById(R.id.projects_recycler_view);
         searchBar = findViewById(R.id.search_bar);
         projectsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // إنشاء قوائم المشاريع
         projectList = new ArrayList<>();
         filteredProjectList = new ArrayList<>();
-        projectsAdapter = new ProjectsAdapter(this, filteredProjectList); // تمرير الـ Context
+        projectsAdapter = new ProjectsAdapter(this, filteredProjectList);
         projectsRecyclerView.setAdapter(projectsAdapter);
 
-        // جلب المشاريع من قاعدة البيانات
         fetchProjectsFromDatabase();
 
-        // إضافة مستمع للنص في خانة البحث
         searchBar.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -65,7 +61,7 @@ public class ProjectsActivity extends AppCompatActivity {
     }
 
     private void fetchProjectsFromDatabase() {
-        String url = "http://192.168.1.106/mobile/projects.php"; // رابط API الذي يعيد المشاريع
+        String url = "http://192.168.1.106/mobile/projects.php";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
@@ -79,18 +75,15 @@ public class ProjectsActivity extends AppCompatActivity {
                         for (int i = 0; i < response.length(); i++) {
                             JSONObject projectObject = response.getJSONObject(i);
 
-                            // جلب البيانات من JSON
                             String name = projectObject.getString("name");
                             String description = projectObject.getString("description");
                             String startDate = projectObject.getString("start_date");
                             String endDate = projectObject.getString("end_date");
                             String imageUrl = projectObject.getString("image");
 
-                            // أضف المشروع إلى القائمة
                             Project project = new Project(name, description, startDate, endDate, imageUrl);
                             projectList.add(project);
                         }
-                        // نسخ جميع المشاريع إلى القائمة المعروضة مبدئيًا
                         filteredProjectList.addAll(projectList);
                         projectsAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
@@ -101,7 +94,6 @@ public class ProjectsActivity extends AppCompatActivity {
                 error -> Toast.makeText(ProjectsActivity.this, "Error fetching data: " + error.getMessage(), Toast.LENGTH_SHORT).show()
         );
 
-        // إضافة الطلب إلى قائمة الطلبات
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }

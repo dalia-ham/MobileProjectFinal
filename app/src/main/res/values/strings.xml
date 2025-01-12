@@ -67,4 +67,7 @@
     <string name="project_name">project_name</string>
     <string name="change_image">change_image</string>
     <string name="project_image">project_image</string>
+    <string name="profile_name">profile_name</string>
+    <string name="user_email">user_email\n</string>
+    <string name="profile_image">profile_image\n</string>
 </resources>

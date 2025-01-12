@@ -36,7 +36,6 @@ public class ProjectDetailsActivity extends AppCompatActivity {
         Button editButton = findViewById(R.id.edit_button);
         Button deleteButton = findViewById(R.id.delete_button);
 
-        // استلام البيانات من الـ Intent
         projectId = getIntent().getStringExtra("id");
         String name = getIntent().getStringExtra("name");
         String description = getIntent().getStringExtra("description");
@@ -44,14 +43,12 @@ public class ProjectDetailsActivity extends AppCompatActivity {
         String endDate = getIntent().getStringExtra("end_date");
         String imageUrl = getIntent().getStringExtra("image_url");
 
-        // عرض البيانات
         nameTextView.setText(name);
         descriptionTextView.setText(description);
         startDateTextView.setText("Start Date: " + startDate);
         endDateTextView.setText("End Date: " + endDate);
         Glide.with(this).load(imageUrl).into(projectImageView);
 
-        // زر التعديل
         editButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, EditProjectActivity.class);
             intent.putExtra("id", projectId);
@@ -63,11 +60,9 @@ public class ProjectDetailsActivity extends AppCompatActivity {
             startActivityForResult(intent, 1);
         });
 
-        // زر الحذف
         deleteButton.setOnClickListener(v -> showDeleteConfirmationDialog());
     }
 
-    // عرض مربع الحوار لتأكيد الحذف
     private void showDeleteConfirmationDialog() {
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("Delete Confirmation")
@@ -78,7 +73,6 @@ public class ProjectDetailsActivity extends AppCompatActivity {
                 .show();
     }
 
-    // تنفيذ عملية الحذف
     private void executeDeleteProject() {
         String url = "http://192.168.1.106/mobile/deleteProject.php";
 
@@ -92,7 +86,7 @@ public class ProjectDetailsActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("id", projectId); // إرسال معرف المشروع للحذف
+                params.put("id", projectId);
                 return params;
             }
         };
