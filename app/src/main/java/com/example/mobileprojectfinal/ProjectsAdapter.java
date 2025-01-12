@@ -1,5 +1,7 @@
 package com.example.mobileprojectfinal;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,10 @@ import java.util.List;
 public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.ProjectViewHolder> {
 
     private List<Project> projectList;
+    private Context context;
 
-    public ProjectsAdapter(List<Project> projectList) {
+    public ProjectsAdapter(Context context, List<Project> projectList) {
+        this.context = context;
         this.projectList = projectList;
     }
 
@@ -38,9 +42,21 @@ public class ProjectsAdapter extends RecyclerView.Adapter<ProjectsAdapter.Projec
         holder.projectEndDateTextView.setText("End: " + project.getEndDate());
 
         // تحميل الصورة باستخدام Glide
-        Glide.with(holder.itemView.getContext())
+        Glide.with(context)
                 .load(project.getImageUrl())
                 .into(holder.projectImageView);
+
+// إعداد مستمع النقر على العنصر
+        holder.itemView.setOnClickListener(v -> {
+            // فتح صفحة التفاصيل وتمرير البيانات
+            Intent intent = new Intent(context, ProjectDetailsActivity.class);
+            intent.putExtra(        "name", project.getName());
+            intent.putExtra("description", project.getDescription());
+            intent.putExtra("start_date", project.getStartDate());
+            intent.putExtra("end_date", project.getEndDate());
+            intent.putExtra("image_url", project.getImageUrl());
+            context.startActivity(intent);
+        });
     }
 
     @Override

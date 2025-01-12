@@ -27,20 +27,18 @@ public class Login extends AppCompatActivity {
     private EditText emailInput, passwordInput;
     private Button loginButton;
     private ProgressBar progressBar;
-    private static final String TAG = "LoginActivity"; // للتمييز في السجلات
+    private static final String TAG = "LoginActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // ربط عناصر الواجهة
         emailInput = findViewById(R.id.email_input);
         passwordInput = findViewById(R.id.password_input);
         loginButton = findViewById(R.id.login_button);
         progressBar = findViewById(R.id.progress_bar);
 
-        // مستمع زر تسجيل الدخول
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +56,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void loginUser(String email, String password) {
-        String url = "http://192.168.1.106/mobile/login.php"; // استبدل بـ 10.0.2.2 إذا كنت تعمل على المحاكي
+        String url = "http://192.168.1.106/mobile/login.php";
 
         progressBar.setVisibility(View.VISIBLE);
         loginButton.setEnabled(false);
@@ -79,7 +77,6 @@ public class Login extends AppCompatActivity {
                             String name = jsonResponse.getString("name");
                             String profileImage = jsonResponse.getString("profile_image");
 
-                            // التوجيه بناءً على الدور
                             Intent intent;
                             if (role.equalsIgnoreCase("Admin")) {
                                 intent = new Intent(Login.this, adminDashboard.class);

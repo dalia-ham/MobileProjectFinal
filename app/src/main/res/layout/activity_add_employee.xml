@@ -35,11 +35,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="@string/add_employee"
+            android:text="Add Employee"
             android:textColor="#7478fc"
-            android:textSize="30sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
     <!-- Form Section -->
@@ -63,7 +62,7 @@
                 android:id="@+id/first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/first_name"
+                android:hint="First Name"
                 android:background="@drawable/textfield_border"
                 android:inputType="textPersonName" />
 
@@ -72,7 +71,7 @@
                 android:id="@+id/last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/last_name"
+                android:hint="Last Name"
                 android:background="@drawable/textfield_border"
                 android:inputType="textPersonName"
                 android:layout_marginTop="8dp" />
@@ -82,9 +81,9 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email"
-                android:inputType="textEmailAddress"
+                android:hint="Email"
                 android:background="@drawable/textfield_border"
+                android:inputType="textEmailAddress"
                 android:layout_marginTop="8dp" />
 
             <!-- Phone Number -->
@@ -92,42 +91,31 @@
                 android:id="@+id/phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/phone_number"
-                android:inputType="phone"
+                android:hint="Phone Number"
                 android:background="@drawable/textfield_border"
+                android:inputType="phone"
                 android:layout_marginTop="8dp" />
-            <!-- Gender Section -->
-            <TextView
-                android:id="@+id/gender_label"
+
+            <!-- Password -->
+            <EditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/gender"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp" />
+                android:hint="Password"
+                android:background="@drawable/textfield_border"
+                android:inputType="textPassword"
+                android:layout_marginTop="8dp" />
 
-            <RadioGroup
-                android:id="@+id/gender_group"
+            <!-- Confirm Password -->
+            <EditText
+                android:id="@+id/confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:hint="Confirm Password"
+                android:background="@drawable/textfield_border"
 
-                <RadioButton
-                    android:id="@+id/radio_male"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Male"
-                    android:checked="true" />
-
-                <RadioButton
-                    android:id="@+id/radio_female"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Female"
-                    android:layout_marginStart="16dp" />
-            </RadioGroup>
-
+                android:inputType="textPassword"
+                android:layout_marginTop="8dp" />
 
             <!-- Profile Image -->
             <LinearLayout
@@ -141,9 +129,9 @@
                 <ImageView
                     android:id="@+id/profile_image"
                     android:layout_width="100dp"
-                    android:layout_height="50dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/puser_icon"
-                    android:contentDescription="@string/description_profile_image"
+                    android:contentDescription="Profile Image"
                     android:clickable="true"
                     android:focusable="true" />
 
@@ -152,39 +140,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="@string/no_image_selected"
+                    android:text="No Image Selected"
                     android:textSize="16sp" />
             </LinearLayout>
-
-            <!-- Password -->
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:background="@drawable/textfield_border"
-                android:layout_marginTop="8dp" />
-
-            <!-- Confirm Password -->
-            <EditText
-                android:id="@+id/confirm_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/confirm_password"
-                android:background="@drawable/textfield_border"
-                android:inputType="textPassword"
-                android:layout_marginTop="8dp" />
 
             <!-- Submit Button -->
             <Button
                 android:id="@+id/submit_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/submit"
+                android:text="Add Employee"
                 android:backgroundTint="@color/purple"
                 android:layout_marginTop="16dp" />
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@
     <string name="to_do">To Do</string>
     <string name="progress">Progress</string>
     <string name="description_settings">description_settings</string>
+    <string name="manager_id">manager_id</string>
     <string name="done">Done</string>
     <string name="today_s_tasks"> Tasks</string>
     <string name="full_name_label">Full Name:</string>
@@ -33,7 +34,7 @@
     <string name="no_image_selected">No image selected</string>
     <string name="Password">Password</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="submit">Submit</string>
+    <string name="submit">Add </string>
     <string name="employees">Employees</string>
     <string name="descriptionadmin_logo">Admin Logo</string>
     <string name="admin_dashboard">Admin Dashboard</string>
@@ -60,4 +61,10 @@
     <string name="completed_tasks">Completed Tasks</string>
     <string name="progress_rate">Progress Rate</string>
     <string name="remaining_time">Remaining Time</string>
+    <string name="project_description">project_description</string>
+    <string name="start_date">start_date\n</string>
+    <string name="end_date">end_date</string>
+    <string name="project_name">project_name</string>
+    <string name="change_image">change_image</string>
+    <string name="project_image">project_image</string>
 </resources>

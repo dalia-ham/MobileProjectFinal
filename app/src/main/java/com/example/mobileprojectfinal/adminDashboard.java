@@ -26,7 +26,7 @@ public class adminDashboard extends AppCompatActivity {
 
     private TextView adminNameTextView, employeesCountTextView, projectsCountTextView, reportsCountTextView;
     private ImageView adminLogoImageView, settings, projects,employee,reports;
-    private Button addManagerButton, addEmployeeButton, addProjectButton, viewReportsButton;
+    private Button addManagerButton, addEmployeeButton, addProjectButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,12 +91,12 @@ public class adminDashboard extends AppCompatActivity {
             Intent emp = new Intent(adminDashboard.this, EmployeesActivity.class);
             startActivity(emp);
         });
+        reports.setOnClickListener(v -> {
+            Intent report = new Intent(adminDashboard.this, ReportsActivity.class);
+            startActivity(report);
+        });
 
 
-//        viewReportsButton.setOnClickListener(v -> {
-//            Intent viewReportsIntent = new Intent(adminDashboard.this, ReportsActivity.class);
-//            startActivity(viewReportsIntent);
-//        });
 
         settings.setOnClickListener(v -> {
             try {

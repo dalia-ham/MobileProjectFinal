@@ -48,7 +48,6 @@ public class addProject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_project);
 
-        // ربط عناصر الواجهة
         projectName = findViewById(R.id.project_name);
         projectDescription = findViewById(R.id.project_description);
         startDate = findViewById(R.id.start_date);
@@ -59,20 +58,15 @@ public class addProject extends AppCompatActivity {
         backButton = findViewById(R.id.back_button);
         projectImage = findViewById(R.id.project_image);
 
-        // إعداد Spinner للحالة
         setupStatusSpinner();
 
-        // زر العودة
         backButton.setOnClickListener(v -> finish());
 
-        // فتح DatePicker عند الضغط على حقل التاريخ
         startDate.setOnClickListener(v -> showDatePickerDialog(startDate));
         endDate.setOnClickListener(v -> showDatePickerDialog(endDate));
 
-        // فتح معرض الصور عند الضغط على الصورة
         projectImage.setOnClickListener(v -> openImageChooser());
 
-        // زر الإرسال
         submitButton.setOnClickListener(v -> {
             String name = projectName.getText().toString().trim();
             String description = projectDescription.getText().toString().trim();

@@ -1,33 +1,26 @@
 package com.example.mobileprojectfinal;
 
 public class Task {
-    private String title;
-    private String description;
-    private String time;
-    private int progress;
+    private String taskId, title, project, status, priority, startDate, dueDate;
+    private int completionPercent;
 
-    // Constructor to initialize Task
-    public Task(String title, String description, String time, int progress) {
+    public Task(String taskId, String title, String project, String status, String priority, String startDate, String dueDate, int completionPercent) {
+        this.taskId = taskId;
         this.title = title;
-        this.description = description;
-        this.time = time;
-        this.progress = progress;
+        this.project = project;
+        this.status = status;
+        this.priority = priority;
+        this.startDate = startDate;
+        this.dueDate = dueDate;
+        this.completionPercent = completionPercent;
     }
 
-    // Getter methods for each attribute
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public int getProgress() {
-        return progress;
-    }
+    public String getTaskId() { return taskId; }
+    public String getTitle() { return title; }
+    public String getProject() { return project; }
+    public String getStatus() { return status; }
+    public String getPriority() { return priority; }
+    public String getStartDate() { return startDate; }
+    public String getDueDate() { return dueDate; }
+    public int getCompletionPercent() { return completionPercent; }
 }

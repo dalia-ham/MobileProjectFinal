@@ -41,7 +41,7 @@ public class EmployeesActivity extends AppCompatActivity {
 
         // إنشاء قائمة الموظفين
         employeeList = new ArrayList<>();
-        employeesAdapter = new EmployeesAdapter(employeeList);
+        employeesAdapter = new EmployeesAdapter(this, employeeList);
         employeesRecyclerView.setAdapter(employeesAdapter);
 
         // جلب البيانات من قاعدة البيانات
@@ -63,7 +63,7 @@ public class EmployeesActivity extends AppCompatActivity {
     }
 
     private void fetchEmployeesFromDatabase() {
-        String url = "http://192.168.1.106/mobile/get_employees.php"; // رابط الـ API
+        String url = "http://192.168.1.106/mobile/get_employees.php";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -78,23 +78,20 @@ public class EmployeesActivity extends AppCompatActivity {
                             for (int i = 0; i < data.length(); i++) {
                                 JSONObject employeeObject = data.getJSONObject(i);
 
-                                // جلب البيانات من JSON
-                                int employeeId = employeeObject.getInt("employee_id");
-                                String email = employeeObject.getString("email");
-                                double salary = employeeObject.getDouble("salary");
-                                String position = employeeObject.getString("position");
-                                int managerId = employeeObject.getInt("manager_id");
-                                String firstName = employeeObject.getString("first_name");
-                                String lastName = employeeObject.getString("last_name");
-                                String phone = employeeObject.getString("phone");
-                                String profileImage = employeeObject.getString("profile_image");
+                                // جلب البيانات مع التحقق
+                                int userId = employeeObject.getInt("user_id");
+                                String firstName = employeeObject.optString("first_name", "N/A");
+                                String lastName = employeeObject.optString("last_name", "N/A");
+                                String email = employeeObject.optString("email", "No Email");
+                                String phone = employeeObject.optString("phone", "No Phone");
+                                String profileImage = employeeObject.optString("profile_image", null);
 
                                 // إضافة الموظف إلى القائمة
-                                employeeList.add(new Employee(employeeId, email, salary, position, managerId, firstName, lastName, phone, profileImage));
+                                employeeList.add(new Employee(userId, firstName, lastName, email, phone, profileImage));
                             }
                             employeesAdapter.notifyDataSetChanged();
                         } else {
-                            Toast.makeText(EmployeesActivity.this, "Failed to fetch data", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(EmployeesActivity.this, "No employees found", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -104,8 +101,9 @@ public class EmployeesActivity extends AppCompatActivity {
                 error -> Toast.makeText(EmployeesActivity.this, "Error fetching data: " + error.getMessage(), Toast.LENGTH_SHORT).show()
         );
 
-        // إضافة الطلب إلى قائمة الطلبات
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonObjectRequest);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonObjectRequest);
     }
+
+
 }

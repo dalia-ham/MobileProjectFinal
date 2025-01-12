@@ -1,22 +1,28 @@
 package com.example.mobileprojectfinal;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.EmployeeViewHolder> {
+public  class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.EmployeeViewHolder> {
 
     private List<Employee> employeeList;
     private List<Employee> filteredList;
+    private Context context;
 
-    public EmployeesAdapter(List<Employee> employeeList) {
+    public EmployeesAdapter(Context context, List<Employee> employeeList) {
+        this.context = context;
         this.employeeList = employeeList;
         this.filteredList = new ArrayList<>(employeeList);
     }
@@ -34,9 +40,18 @@ public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.Empl
         holder.nameTextView.setText(employee.getFirstName() + " " + employee.getLastName());
         holder.emailTextView.setText(employee.getEmail());
         holder.phoneTextView.setText(employee.getPhone());
-        holder.positionTextView.setText(employee.getPosition());
-        holder.salaryTextView.setText("Salary: $" + employee.getSalary());
+
+        // التحقق من وجود صورة
+        String imageUrl = employee.getProfileImage();
+        if (imageUrl == null || imageUrl.isEmpty()) {
+            holder.profileImageView.setImageResource(R.drawable.puser_icon);
+        } else {
+            Glide.with(holder.itemView.getContext())
+                    .load("http://192.168.1.106/mobile/" + imageUrl)
+                    .into(holder.profileImageView);
+        }
     }
+
 
     @Override
     public int getItemCount() {
@@ -50,7 +65,8 @@ public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.Empl
         } else {
             for (Employee employee : employeeList) {
                 if (employee.getFirstName().toLowerCase().contains(query.toLowerCase()) ||
-                        employee.getLastName().toLowerCase().contains(query.toLowerCase())) {
+                        employee.getLastName().toLowerCase().contains(query.toLowerCase()) ||
+                        employee.getEmail().toLowerCase().contains(query.toLowerCase())) {
                     filteredList.add(employee);
                 }
             }
@@ -59,15 +75,15 @@ public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.Empl
     }
 
     public static class EmployeeViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView, emailTextView, phoneTextView, positionTextView, salaryTextView;
+        TextView nameTextView, emailTextView, phoneTextView;
+        ImageView profileImageView;
 
         public EmployeeViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.employee_name);
             emailTextView = itemView.findViewById(R.id.employee_email);
             phoneTextView = itemView.findViewById(R.id.employee_phone);
-            positionTextView = itemView.findViewById(R.id.employee_position);
-            salaryTextView = itemView.findViewById(R.id.employee_salary);
+            profileImageView = itemView.findViewById(R.id.profile_image);
         }
     }
 }
